@@ -120,10 +120,10 @@ body {
 </form>
 
 </div>
-{% if prediction==1 %}
-<h1>WATER IS DRINKABLE  </span></h1>
-{% elif prediction==0 %}
-<h1>WATER IS UNDRINKABLE</span></h1>
+{% if prediction==0 %}
+<h1>WATER IS UNDRINKABLE</h1>
+{% elif prediction==1 %}
+<h1>WATER IS DRINKABLE</h1>
 {% endif %}
 </div>
 </body>
