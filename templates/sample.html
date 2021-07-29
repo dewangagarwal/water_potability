@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Water Potability</title>
+    </head>
+    <style>
+
+
+input[type=number], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-weight: bolder;
+}
+
+input[type=submit] {
+  width: 80%;
+  background-color: #007EFC;
+  color:#FFFFFF;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:100;
+  font-weight: bolder;
+}
+
+
+input[type=submit]:hover {
+  background-color: black;
+}
+form{
+
+    border-radius: 10px;
+    padding-top: 5%;
+    font-weight: bolder;
+    color : #FFFFFF;
+    font-style: Microsoft Sans Serif;
+}
+div {
+ 
+  border-radius: 5px;
+  margin-left: 35%;
+  width: 30%;
+  
+}
+h1{
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bolder;
+    font-style: Microsoft Sans Serif;
+}
+h3{
+  color: white;
+  font-style: Microsoft Sans Serif;
+}
+
+body {
+            
+            background-image: url("static/img/123.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 0px;
+        }
+       
+</style>
+    <body>
+
+<h1>Water Potability Prediction</h1>
+
+<div>
+<form action="{{ url_for('predict')}}" method="post">
+<label for="ph" placeholder="PLease Enter Numeric value">PH of Water</label><br>
+<select id="ph" name="ph">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+
+    </select><br>
+
+<label for="Hardness">Hardness of water</label><br>
+<input type="number" id="Hardness" name="Hardness" placeholder="PLease Enter Numeric value" required="required"><br>
+
+<label for="Solids">Solids in water</label><br>
+<input type="number" id="Solids" name="Solids" placeholder="PLease Enter Numeric value" required="required"><br>
+
+<label for="Chloramines">Chloramines in water</label><br>
+<input type="number" id="Chloramines" name="Chloramines" placeholder="PLease Enter Numeric value" required="required"><br>
+
+<label for="Sulfate">Sulfate in water</label><br>
+<input type="number" id="Sulfate" name="Sulfate" placeholder="PLease Enter Numeric value" required="required"><br>
+
+<label for="Conductivity">Conductivity in water</label><br>
+<input type="number" id="Conductivity" name="Conductivity" placeholder="PLease Enter Numeric value" required="required"><br>
+
+<label for="Organic_carbon">Organic_carbon in water</label><br>
+<input type="number" id="Organic_carbon" name="Organic_carbon" placeholder="PLease Enter Numeric value" required="required"><br>
+
+
+<input type="submit" value="Calculate Water potability">
+</form>
+
+</div>
+{% if prediction==1 %}
+<h1><span class='danger'>WATER IS DRINKABLE  </span></h1>
+{% elif prediction==0 %}
+<h1><span class='safe'>WATER IS UNDRINKABLE</span></h1>
+{% endif %}
+</div>
+</body>
+</html>
